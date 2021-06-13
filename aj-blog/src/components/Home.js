@@ -1,9 +1,28 @@
+import { useState } from "react";
+
 const Home = () => {
-  return (
-    <div className="home">
-      <h2>Homepage</h2>
-    </div>
-  );
+  const [blogs, setBlogs] = useState([
+    {
+      title: "My new blog",
+      body: "Lorem Ipsum...",
+      author: "Aditya",
+      id: 1,
+    },
+    {
+      title: "Follow your heart",
+      body: "Lorem Ipsum...",
+      author: "Rajdeep",
+      id: 2,
+    },
+    {
+      title: "Welcome party!",
+      body: "Lorem Ipsum...",
+      author: "Rinkal",
+      id: 3,
+    },
+  ]);
+
+  return <div className="home"></div>;
 };
 
 export default Home;
