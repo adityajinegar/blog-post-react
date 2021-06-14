@@ -1,12 +1,31 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("Naruto");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const blog = { title, body, author };
+
+    setIsLoading(true);
+
+    fetch("http://localhost:8000/blogs", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(blog),
+    }).then(() => {
+      console.blog("New blog added.");
+      setIsLoading(false);
+      // history.go(-1); // -1 means go back 1 step in histoy, 1 for forward in history
+      history.push("/");
+    });
   };
 
   return (
@@ -36,7 +55,8 @@ const Create = () => {
           <option value="Minato">Minato</option>
         </select>
 
-        <button>Add Blog</button>
+        {!isLoading && <button>Add Blog</button>}
+        {isLoading && <button disabled>Addding Blog...</button>}
       </form>
     </div>
   );
