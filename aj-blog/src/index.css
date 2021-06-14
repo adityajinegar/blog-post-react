@@ -119,3 +119,16 @@
   border-radius: 8px;
   cursor: pointer;
 }
+
+.not-found h2 {
+  margin-bottom: 10px;
+}
+
+.not-found p {
+  margin-bottom: 10px;
+}
+
+.back-to-homepage:hover {
+  color: #f1356d;
+  text-decoration: none;
+}
