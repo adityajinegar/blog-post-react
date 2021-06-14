@@ -25,7 +25,7 @@ const useFetch = (url) => {
           console.log("Fetch Aborted");
         } else {
           setIsLoading(false);
-          setError(error.message);
+          setError(err.message);
         }
       });
     return () => abortController.abort();
