@@ -6,7 +6,7 @@ const Home = () => {
     data: blogs,
     isLoading,
     error,
-  } = useFetch("https://blog-post-reactjs.herokuapp.com/blogs");
+  } = useFetch("http://localhost:8000/blogs");
 
   return (
     <div className="home">
